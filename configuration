@@ -19,4 +19,13 @@ all settings -> keyboard -> shortcuts -> custom shortcut -> +(add) -> make name/
 https://launchpad.net/debian/experimental/+source/pygame/1.9.2~pre~r3144-1/+files/pygame_1.9.2~pre~r3144.orig.tar.gz
 python setup.py install
 
+4)add fonts to /usr/share/fonts/TTF
+http://www.fontsy.com/fonts/linux_fonts.zip
+http://font.ubuntu.com/download/ubuntu-font-family-0.80.zip
 
+5) terminal prompt color
+https://wiki.archlinux.org/index.php/Color_Bash_Prompt
+  a) change /etc/bash.bashrc
+  b) add /etc/DIR_COLORS
+  c) modifiy /etc/pacman.conf uncomment color
+  d) change ~/.bashrc
