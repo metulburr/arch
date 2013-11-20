@@ -46,3 +46,21 @@ sudo systemctl enable gdm.service
 
 #11) confirm using graphics card
 sudo aticonfig --od-gettemperature
+
+
+
+
+### safe update with catalyst
+pacaur -Syua
+if 'catalyst' in update:
+    abort update
+    sudo systemctl disable gdm.service
+    reboot
+pacaur -Syua
+sudo aticonfig --initial
+sudo aticonfig --initial --input=/etc/X11/xorg.conf
+sudo aticonfig --resolution=0,1920x1080
+sudo systemctl enable gdm.service
+reboot
+sudo amdcccle
+sudo aticonfig --od-gettemperature
