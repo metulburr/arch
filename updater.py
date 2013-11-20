@@ -11,7 +11,7 @@ def cmd(string):
     proc = subprocess.Popen(string.split())
     proc.wait()
 
-cmd("./news_alert.sh") #assuming news_alert.sh is in /usr/bin
+cmd("news_alert.sh") #assuming news_alert.sh is in /usr/bin
 try:
     var = input("update? [Y/N]")
 except KeyboardInterrupt:
