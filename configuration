@@ -29,3 +29,7 @@ https://wiki.archlinux.org/index.php/Color_Bash_Prompt
   b) add /etc/DIR_COLORS
   c) modifiy /etc/pacman.conf uncomment color
   d) change ~/.bashrc
+
+6) add git configs
+git config --global user.name <username>
+git config --global user.email <username>@github.com
