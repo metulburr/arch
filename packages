@@ -1,0 +1,5 @@
+OFFICIAL
+python2-imaging python2-pillow python-numpy python2-numpy python-scipy python2-scipy python-matplotlib python2-flask python-flask python2-mechanize python2-pygame python-pygame-hg python-pip python-setuptools python2-setuptools python-xlib gparted vlc hwinfo xchat wine winetricks k3b eclipse unetbootin tor nautilus-open-terminal git openbox obconf obmenu nitrogen grub-customizer mumble weechat terminator tmux ssh gimp deluge rtorrent nmap skype filezilla ghex chromium epiphany steam blender desmume zsnes htop gconf-editor gnome-tweak-tool virtualbox virtualbox-guest-iso boost boost-libs sfml 
+
+AUR
+python-pyside openbox-xdgmenu gufw gmountiso 
