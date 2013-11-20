@@ -1,5 +1,5 @@
 OFFICIAL PACKAGES
-python2-imaging python2-pillow python-numpy python2-numpy python-scipy python2-scipy python-matplotlib python2-flask python-flask python2-mechanize python2-pygame python-pygame-hg python-pip python-setuptools python2-setuptools python-xlib gparted vlc hwinfo xchat wine winetricks k3b eclipse unetbootin tor nautilus-open-terminal git openbox obconf obmenu nitrogen grub-customizer mumble weechat terminator tmux ssh gimp deluge rtorrent nmap skype filezilla ghex chromium epiphany steam blender desmume zsnes htop gconf-editor gnome-tweak-tool virtualbox virtualbox-guest-iso boost boost-libs sfml flashplugin geany geany-plugins
+python2-imaging python2-pillow python-numpy python2-numpy python-scipy python2-scipy python-matplotlib python2-flask python-flask python2-mechanize python2-pygame python-pygame-hg python-pip python-setuptools python2-setuptools python-xlib gparted vlc hwinfo xchat wine winetricks k3b eclipse unetbootin tor nautilus-open-terminal git openbox obconf obmenu nitrogen grub-customizer mumble weechat terminator tmux ssh gimp deluge rtorrent nmap skype filezilla ghex chromium epiphany steam blender desmume zsnes htop gconf-editor gnome-tweak-tool virtualbox virtualbox-guest-iso boost boost-libs sfml flashplugin geany geany-plugins bitlbee
 
 AUR PACKAGES
 python-pyside openbox-xdgmenu gufw gmountiso minecraft 
@@ -36,3 +36,27 @@ git config --global user.email <username>@github.com
 
 7) add user vimrc to roots
 sudo cp ~/.vimrc /root
+
+8) bitlbee setup
+sudo pacman -S bitlbee
+in file /etc/bitlbee/bitlbee.conf
+  a) uncomment RunMode = {}
+  b) uncomment User = bitlbee
+sudo chown -R bitlbee:bitlbee /var/lib/bitlbee
+sudo systemctl start bitlbee
+sudo systemctl enable bitlbee
+
+in IRC client:
+  a) make localhost server for bitlbee
+  account add jabber metulburr@chat.facebook.com <password> 
+  account 0 set nick_format %full_name 
+  account on
+
+  account add metulburr@gmail.com <password> 
+  account 1 set nick_format %full_name 
+  account on
+  
+  register <password>
+#rejoin via identify <password>
+
+
