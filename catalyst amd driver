@@ -1,0 +1,48 @@
+#1) add catalyst repo above core to /etc/pacman.conf
+[catalyst]
+Server = http://catalyst.wirephire.com/repo/catalyst/$arch
+
+#if future catalyst breaks x, add previous xorg version, in /etc/pacman.conf add after catalyst
+[xorg113]
+Server = http://catalyst.wirephire.com/repo/xorg113/$arch
+
+#2) sign keys for repo
+# pacman-key --keyserver pgp.mit.edu --recv-keys 0xabed422d653c3094
+# pacman-key --lsign-key 0xabed422d653c3094
+
+#3) udate
+sudo pacman -Syy
+
+#4) install catalyst, remove conflicting packages, and reinstall after
+pacaur -S catalyst catalyst-utils catalyst-hook lib32-catalyst-utils
+
+#5) 
+sudo pacman -S acpid
+
+#6) 
+sudo systemctl enable atieventsd
+sudo systemctl enable temp-links-catalyst
+sudo systemctl enable catalyst-hook
+
+sudo aticonfig --initial
+sudo aticonfig --initial --input=/etc/X11/xorg.conf
+sudo aticonfig --resolution=0,1920x1080
+
+#7) in /boot/grub/grub.cfg
+#add "nomodeset" to linux (first only)
+#remove "qiuet" on (both)
+
+#8) in /etc/modprobe.d
+#add new file modprobe.conf
+#in new file add "blacklist radeon"
+
+#9)
+sudo pacman -S qt4
+
+#10) 
+sudo pacman -S linux-headers
+sudo pacman -S linux
+sudo systemctl enable gdm.service
+
+#11) confirm using graphics card
+sudo aticonfig --od-gettemperature
