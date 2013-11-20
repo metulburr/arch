@@ -1,0 +1,22 @@
+OFFICIAL PACKAGES
+python2-imaging python2-pillow python-numpy python2-numpy python-scipy python2-scipy python-matplotlib python2-flask python-flask python2-mechanize python2-pygame python-pygame-hg python-pip python-setuptools python2-setuptools python-xlib gparted vlc hwinfo xchat wine winetricks k3b eclipse unetbootin tor nautilus-open-terminal git openbox obconf obmenu nitrogen grub-customizer mumble weechat terminator tmux ssh gimp deluge rtorrent nmap skype filezilla ghex chromium epiphany steam blender desmume zsnes htop gconf-editor gnome-tweak-tool virtualbox virtualbox-guest-iso boost boost-libs sfml flashplugin geany geany-plugins
+
+AUR PACKAGES
+python-pyside openbox-xdgmenu gufw gmountiso minecraft 
+
+
+1) change keybindings to open terminal
+all settings -> keyboard -> shortcuts -> custom shortcut -> +(add) -> make name/command -> disabled -> make key combo
+
+2) geany config
+  a) move colorschemse to ~/.config/geany/colorschemes/schemes
+  b) change geany keybindings Edit -> preferences -> keybindings -> change Run
+  c) change default terminal from xterm to gnome-terminal
+  d) change g++ execution string
+      g++ -std=c++11 -Wall -o "%e" "%f" -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system &&"./%e"
+      
+3) download/install pygame 1.9.2 pre for python3.x
+https://launchpad.net/debian/experimental/+source/pygame/1.9.2~pre~r3144-1/+files/pygame_1.9.2~pre~r3144.orig.tar.gz
+python setup.py install
+
+
