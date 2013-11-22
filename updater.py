@@ -1,21 +1,12 @@
 #!/usr/bin/env python
 
-__version__ = 0.02
+__version__ = 0.01
 
 #### Script will:
 #### display last news update before updating
 #### update and upgrade from official repo
 #### update AUR packages, if pacaur update displays 'catalyst' in output proceed with safe amd catalyst update, re-execute this upon reboot, as it remembers its state
 #### automate safe catalyst update
-
-
-#things to add
-#1) upon fail of fglrx module re-compile kernel and rerun
-# http://codepad.org/GBRWMuOt
-#) abort update on Syu phase if "Failed!!! Check out log:" in stdout
-#Building fglrx module for 3.12.1-1-ARCH kernel ...
-#Failed!!! Check out log: /var/log/catalyst-install.log
-
 
 
 import subprocess
@@ -33,6 +24,9 @@ RESOLUTION_HEIGHT = '1080'
 
 UPDATE = "sudo pacman -Syy"
 UPGRADE = "sudo pacman -Syu"
+AUR_UPDATE = 'pacaur -Syua'
+
+FAILED = 'Failed!!! Check out log:'
 
 def cmd(c, pipe=None):
 	if pipe:
@@ -116,14 +110,28 @@ else:
 		sys.exit()
 		
 	if var.lower() == "y":
+		print(UPDATE)
 		cmd(UPDATE, True)
-		cmd(UPGRADE, True)
+		print(UPGRADE)
+		s, e = cmd(UPGRADE)
+		if e:
+			out = s.decode() + e.decode()
+		else:
+			out = s.decode()
+		if FAILED in out:
+			#need to rebuild module on previous line and restart, check packages updated
+			print('update aborted!\n')
+			sys.exit()
 	else:
 		print("update aborted!\n")	
 		sys.exit()
-	
+	print(AUR_UPDATE)
 	print('\nRemember to abort if catalyst update!!!')
-	s, e = cmd('pacaur -Syua')
+	ch = input('Update? [y/n]')
+	if ch.lower() != 'y':
+		print("update aborted!\n")	
+		sys.exit()
+	s, e = cmd(AUR_UPDATE)
 	#script needs user to abort manually if catalyst update
 	if 'catalyst' in s.decode():
 		#catalyst update, abort update
@@ -134,7 +142,7 @@ else:
 		
 		wflag(FLAG, 1)
 		
-		choice = input('reboot? [y/n]')
+		choice = input('reboot? [Y/N]')
 		if choice.lower() == 'y':
 			cmd('reboot', True)
 	else:
