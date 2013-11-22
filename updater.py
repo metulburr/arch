@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-__version__ = 0.01
+__version__ = 0.02
 
 #### Script will:
 #### display last news update before updating
@@ -70,14 +70,16 @@ def last_update():
                 continue
     found = None
     for line in rev:
-        #print(line)
         if line.endswith(upgrade_search):
             found = line.split()
+            break
             
     if found:
         date = found[0][1:]
+        date_list = date.split('-')
+        date_str = date_list[1] + '-' + date_list[2] + '-' + date_list[0]
         time = found[1][:-1]
-        return 'Your Last Update was on {} at {}'.format(date, time)
+        return 'Your Last Update was on {} at {}'.format(date_str, time)
     else:
         return ''
 
