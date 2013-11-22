@@ -9,7 +9,7 @@ python-pyside openbox-xdgmenu gufw gmountiso minecraft
 all settings -> keyboard -> shortcuts -> custom shortcut -> +(add) -> make name/command -> disabled -> make key combo
 
 2) geany config
-  a) move colorschemse to ~/.config/geany/colorschemes/schemes
+  a) move colorschemse to /usr/share/geany/colorschemes
   b) change geany keybindings Edit -> preferences -> keybindings -> change Run
   c) change default terminal from xterm to gnome-terminal
   d) change g++ execution string
