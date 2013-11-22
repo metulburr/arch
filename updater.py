@@ -9,6 +9,15 @@ __version__ = 0.02
 #### automate safe catalyst update
 
 
+#things to add
+#1) upon fail of fglrx module re-compile kernel and rerun
+# http://codepad.org/GBRWMuOt
+#) abort update on Syu phase if "Failed!!! Check out log:" in stdout
+#Building fglrx module for 3.12.1-1-ARCH kernel ...
+#Failed!!! Check out log: /var/log/catalyst-install.log
+
+
+
 import subprocess
 import os
 import sys
