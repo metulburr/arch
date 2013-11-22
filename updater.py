@@ -118,6 +118,7 @@ else:
 			out = s.decode() + e.decode()
 		else:
 			out = s.decode()
+		print(out)
 		if FAILED in out:
 			#need to rebuild module on previous line and restart, check packages updated
 			print('update aborted!\n')
