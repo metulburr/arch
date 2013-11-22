@@ -51,6 +51,36 @@ def get_flag():
 		return '0'
 	else:
 		return rflag(FLAG)
+		
+def last_update():
+    pacman_log = '/var/log/pacman.log'
+    null_path = '/dev/null'
+    null = open(null_path, 'w')
+    upgrade_search = 'starting full system upgrade\n'
+    rev = []
+
+    with open(pacman_log, encoding="utf-8") as f: 
+        for line in f:
+            try:
+                print(line, file=null) #check for errors
+                rev.insert(0, line) #reverse order
+            except UnicodeDecodeError:
+                continue
+            except UnicodeEncodeError:
+                continue
+    found = None
+    for line in rev:
+        #print(line)
+        if line.endswith(upgrade_search):
+            found = line.split()
+            
+    if found:
+        date = found[0][1:]
+        time = found[1][:-1]
+        return 'Your Last Update was on {} at {}'.format(date, time)
+    else:
+        return ''
+
 
 if get_flag() != '0':
 	#upon reboot of catalyst update
@@ -68,6 +98,7 @@ else:
 	
 	cmd(BASH_NEWS_SCRIPT_NAME,True)
 	try:
+		print(last_update())
 		var = input("update? [Y/N]")
 	except KeyboardInterrupt:
 		print('\nupdate aborted!')
