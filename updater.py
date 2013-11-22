@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-__version__ = 0.01
+__version__ = 0.03
 
 #### Script will:
 #### display last news update before updating
