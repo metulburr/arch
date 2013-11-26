@@ -113,22 +113,23 @@ else:
 		print(UPDATE)
 		cmd(UPDATE, True)
 		print(UPGRADE)
-		s, e = cmd(UPGRADE)
-		if e:
-			out = s.decode() + e.decode()
-		else:
-			out = s.decode()
-		print(out)
-		if FAILED in out:
-			#need to rebuild module on previous line and restart, check packages updated
-			print('update aborted!\n')
-			sys.exit()
+		cmd(UPGRADE, True)
+		#s, e = cmd(UPGRADE)
+		#if e:
+		#	out = s.decode() + e.decode()
+		#else:
+		#	out = s.decode()
+		#print(out)
+		#if FAILED in out:
+		#	#need to rebuild module on previous line and restart, check packages updated
+		#	print('update aborted!\n')
+		#	sys.exit()
 	else:
 		print("update aborted!\n")	
 		sys.exit()
 	print(AUR_UPDATE)
 	print('\nRemember to abort if catalyst update!!!')
-	ch = input('Update? [y/n]')
+	ch = input('Update? [Y/N]')
 	if ch.lower() != 'y':
 		print("update aborted!\n")	
 		sys.exit()
