@@ -14,7 +14,10 @@ swapon /dev/sda<num>
 mount /dev/sda<num> /mnt
 
 #download base system
+#if planning on using only hardwired 
 pacstrap /mnt base base-devel vim sudo links
+#if planning on using wifi
+pacstrap /mnt base base-devel vim links sudo iw iproute2 wireless_tools wpa_supplicant dialog
 
 #no windows
 pacstrap /mnt grub-bios
@@ -69,7 +72,7 @@ umount /mnt
 reboot
 #login with root
 
-#confirm internet
+#confirm internet if using hardwired
 ping google.com
 
 #add user
@@ -87,6 +90,11 @@ rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist
 
 exit
 login to username
+#if using wifi
+  sudo wifi-menu -o
+  in /etc/netctl check file created with your network name
+  sudo cp /etc/netctl/<network_name> /etc/netctl/home
+  sudo netctl start <network_name>
 
 sudo pacman -Syy
 sudo pacman -Syu
