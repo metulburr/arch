@@ -31,8 +31,8 @@ https://wiki.archlinux.org/index.php/Color_Bash_Prompt
   d) change ~/.bashrc
 
 6) add git configs
-git config --global user.name <username>
-git config --global user.email <username>@github.com
+git config --global user.name metulburr
+git config --global user.email micahpage911@yahoo.com
 
 7) add user vimrc to roots
 sudo cp ~/.vimrc /root
