@@ -14,6 +14,7 @@ all settings -> keyboard -> shortcuts -> custom shortcut -> +(add) -> make name/
   c) change default terminal from xterm to gnome-terminal
   d) change g++ execution string
       g++ -std=c++11 -Wall -o "%e" "%f" -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system &&"./%e"
+      g++ -I/usr/include/SDL2 -std=c++11 -Wall -o "%e" "%f" -lSDL2 -lSDL2_image &&"./%e"
       
 3) download/install pygame 1.9.2 pre for python3.x
 https://launchpad.net/debian/experimental/+source/pygame/1.9.2~pre~r3144-1/+files/pygame_1.9.2~pre~r3144.orig.tar.gz
