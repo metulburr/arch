@@ -52,7 +52,7 @@ in IRC client:
   account 0 set nick_format %full_name 
   account on
 
-  account add metulburr@gmail.com <password> 
+  account add jabber metulburr@gmail.com <password> 
   account 1 set nick_format %full_name 
   account on
   
