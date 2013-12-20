@@ -124,7 +124,12 @@ speaker-test -c 2
 #install fonts
 sudo pacman -S ttf-dejavu ttf-droid ttf-cheapskate
 
-sudo pacman -S xorg-server xorg-server-utils xorg-utils xorg-xclock xorg-twm xterm xf86-video-vesa xorg-xinit mesa mesa-demos libgl xf86-video-ati
+sudo pacman -S xorg-server xorg-server-utils xorg-utils xorg-xclock xorg-twm xterm xf86-video-vesa xorg-xinit mesa mesa-demos libgl 
+#if desktop with ATI graphics card
+  sudo pacman -S xf86-video-ati
+#if using acer aspire one netbook:
+  sudo pacman -S xf86-video-intel xf86-input-synaptics 
+
 startx
 #possible problems to delete conflicting files and delete and reinstall
 #left window exit
